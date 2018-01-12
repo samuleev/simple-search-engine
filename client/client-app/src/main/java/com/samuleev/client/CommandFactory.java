@@ -1,20 +1,21 @@
 package com.samuleev.client;
 
 import com.samuleev.client.commands.Command;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.inject.Inject;
+
 @Service
+@RequiredArgsConstructor(onConstructor = @__(@Inject))
 public class CommandFactory {
 
-    @Autowired
-    private Command putCommand;
+    private final @NonNull Command putCommand;
 
-    @Autowired
-    private Command getCommand;
+    private final @NonNull Command getCommand;
 
-    @Autowired
-    private Command searchCommand;
+    private final @NonNull Command searchCommand;
 
     public Command getCommand(CommandName commandName) {
         switch (commandName) {
